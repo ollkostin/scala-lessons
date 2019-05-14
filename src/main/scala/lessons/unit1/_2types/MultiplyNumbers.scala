@@ -1,4 +1,4 @@
-package lessons._2types
+package lessons.unit1._2types
 
 import scala.io.StdIn.readInt
 

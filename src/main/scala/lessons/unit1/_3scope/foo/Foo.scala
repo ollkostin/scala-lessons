@@ -1,6 +1,6 @@
-package lessons._3scope.foo
+package lessons.unit1._3scope.foo
 
-import lessons._3scope.baz.Baz._ // import all names from scope
+import lessons.unit1._3scope.baz.Baz._ // import all names from scope
 
 object Foo {
   val name = "Bob"

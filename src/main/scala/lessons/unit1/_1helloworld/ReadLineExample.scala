@@ -1,4 +1,4 @@
-package lessons._1helloworld
+package lessons.unit1._1helloworld
 
 import scala.io.StdIn.readLine
 
