@@ -1,8 +1,9 @@
 package lessons.unit3._2functions
 
 object Example extends App {
-  //  functions
-  //  convertMethodToFunction
+  functions
+  currying
+  convertMethodToFunction
   composition
 
   private def functions = {
@@ -47,20 +48,20 @@ object Example extends App {
     plus(1)(2)
 
     val plus3 = (x: Int, y: Int, z: Int) => x + y + z
-//    val plus3c: Int => Int => Int = plus3.curried
+    val plus3c: Int => Int => Int => Int = plus3.curried
 
-//    plus3c(1)(2)(3)
+    print(plus3c(1)(2)(3))
   }
 
   def composition = {
-    val plus: (Int, Int) => Int = (x, y) => x + y
-    val mul3: Int => Int = x => x * 3
+    val plus1 = (_: Int) + 1
+    val mul3 = (_: Int) * 3
 
 
-    //    val plusThenMul = plus andThen mul3
-    //    val plusBeforeMul = plus compose mul3
-    //
-    //    println(plusThenMul(5))
-    //    println(plusBeforeMul(5))
+    val plusThenMul = plus1 andThen mul3
+    val plusBeforeMul = plus1 compose mul3
+
+    println(plusThenMul(5))
+    println(plusBeforeMul(5))
   }
 }
