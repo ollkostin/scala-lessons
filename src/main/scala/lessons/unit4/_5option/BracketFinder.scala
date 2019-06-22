@@ -1,10 +1,5 @@
 package lessons.unit4._5option
 
-/**
-  * BracketFinder.
-  *
-  * @author Vladimir_Kostin
-  */
 object BracketFinder extends App {
 
   val string = "All you need is [love]"
@@ -16,9 +11,10 @@ object BracketFinder extends App {
   println(indexOf(string, "7"))
 
   def brackets(s: String): Option[(Int, Int)] =
-    indexOf(s, "[").flatMap { opening =>
+    indexOf(s, "[").flatMap(opening =>
       indexOf(s, "]")
-    }.map(closing => (opening, closing))
+        .map(closing => (opening, closing))
+    )
 
   print(brackets(string))
 }
