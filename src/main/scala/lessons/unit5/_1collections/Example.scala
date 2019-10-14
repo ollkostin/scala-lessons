@@ -1,6 +1,6 @@
 package lessons.unit5._1collections
 
-import scala.collection.mutable.{Buffer, Map, Set}
+import scala.collection.mutable
 
 object Example extends App {
 
@@ -12,29 +12,27 @@ object Example extends App {
 
   val newStr = str + " new"
 
+  //interpolation faster then concatenation
   val interpolated = s"$str $char"
 
-  val buffer: Buffer[String] = Buffer("a", str, newStr)
+  val buffer: mutable.Buffer[String] = mutable.Buffer("a", str, newStr)
 
   buffer += "aaa"
 
   println(buffer)
 
-  val set: Set[String] = Set("a", str, newStr)
+  val set: mutable.Set[String] = mutable.Set("a", str, newStr)
 
   set += "a"
   set += "a"
 
   println(set)
 
-  val map: Map[Int, String] = Map()
+  val map: mutable.Map[Int, String] = mutable.Map()
 
-  map.put(1,"One")
-  map.put(2,"Two")
+  map.put(1, "One")
+  map.put(2, "Two")
 
   println(map)
-
-
-
 
 }
