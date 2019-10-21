@@ -35,4 +35,34 @@ object Example extends App {
 
   val cities4 = cities2 ++ cities3
 
+  val cities = Vector("Москва", "Волгоград", "Питер")
+
+  println(cities(1)) //Волгоград
+  println(cities.head) //Москва
+  println(cities.last) //Питер
+
+  println(cities.size) //3
+  println(cities.contains("Волгоград")) //true
+  println(cities.indices) //0 until 2
+
+  val cityMap = Map("Москва" -> 1, "Питер" -> 3)
+
+  println(cityMap.size) //2
+  println(cityMap.keySet) //Set("Москва" , "Питер")
+  println(cityMap.contains("Питер")) //true
+
+  println(cityMap("Москва")) // 1
+  println(cityMap.get("Питер")) // Some(3)
+  println(cityMap.get("Волгоград")) // None
+
+  val citySet = Set("Москва", "Волгоград", "Питер")
+  println(citySet("Москва")) //true
+  println(citySet("MSK")) //false
+
+  println(citySet.size) //3
+  println(citySet.contains("Москва")) //true
+
+
+
+
 }
