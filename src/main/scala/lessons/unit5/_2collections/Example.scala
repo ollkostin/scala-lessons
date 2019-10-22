@@ -55,6 +55,9 @@ object Example extends App {
   println(cityMap.get("Питер")) // Some(3)
   println(cityMap.get("Волгоград")) // None
 
+  cityMap - "Питер"
+  cityMap -- List("Москва")
+
   val citySet = Set("Москва", "Волгоград", "Питер")
   println(citySet("Москва")) //true
   println(citySet("MSK")) //false
@@ -62,7 +65,40 @@ object Example extends App {
   println(citySet.size) //3
   println(citySet.contains("Москва")) //true
 
+  citySet - "Питер"
+  citySet -- List("Москва")
+
+  val nums = Vector.range(1, 21)
+
+  print(nums.slice(3, 7))
+  print(nums.tail) //все, кроме первого
+  print(nums.init) //все, кроме последнего
+  print(nums.take(3)) // 3 из начала
+  print(nums.drop(3)) // все, кроме 3 из начала
+  print(nums.takeRight(3)) // 3 с конца
+  print(nums.dropRight(3)) // все, кроме 3 из конца
 
 
+  val odds = nums.filter(_ % 2 == 1)
+  val evens = nums.filterNot(_ % 2 == 1)
+  val (odds1, evens1) = nums.partition(_ % 2 == 1)
 
+  val small = nums.takeWhile(_ < 10)
+  val big = nums.dropWhile(_ < 10)
+  val (small1, big1) = nums.span(_ < 10)
+
+  val nums1 = List.range(0, 10)
+  val alpha = 'A' to 'Z'
+  val alphas = nums.map(alpha)
+
+  val charList: List[Char] =
+    nums.collect {
+      case i if i % 2 == 0 => alpha(i / 2 * 3)
+      case 3 => '_'
+      case 5 | 7 => '!'
+    }
+
+  val charLists: List[List[Char]] = nums1.map(i => List(alpha(i), alpha(i + 3)))
+  val flatten: List[Char] = charLists.flatten
+  val flatMapUsed: List[Char] = nums1.flatMap(i => List(alpha(i), alpha(i + 3)))
 }
