@@ -91,7 +91,7 @@ object Example extends App {
   val alpha = 'A' to 'Z'
   val alphas = nums.map(alpha)
 
-  val charList: List[Char] =
+  val charList: Vector[Char] =
     nums.collect {
       case i if i % 2 == 0 => alpha(i / 2 * 3)
       case 3 => '_'
@@ -101,4 +101,15 @@ object Example extends App {
   val charLists: List[List[Char]] = nums1.map(i => List(alpha(i), alpha(i + 3)))
   val flatten: List[Char] = charLists.flatten
   val flatMapUsed: List[Char] = nums1.flatMap(i => List(alpha(i), alpha(i + 3)))
+
+  // #:: - ленивая конкатенация
+  lazy val primes: Stream[Long] = 2L #:: Stream.iterate(3L)(_ + 2L).filter(isPrime)
+
+  def isPrime(x: Long): Boolean =
+    Stream.from(2).takeWhile(p => p * p < x).forall(x % _ != 0)
+
+  println(isPrime(12))
+  println(isPrime(7))
+
+  println(primes.take(10).force)
 }
